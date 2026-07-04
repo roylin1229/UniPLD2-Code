@@ -1,9 +1,129 @@
 # UniPLD2: A Unified Framework for Efficient Point-Line Detection and Description
 
-Welcome to the GitHub repository for the **UniPLD2** project. 
+MATLAB implementation of **UniPLD2**, a unified framework for efficient feature point
+and line segment detection and description.
 
-## UniPLD2 for Visual Localization
+UniPLD2 detects and describes feature points and line segments in a shared framework by
+analyzing dedicated level lines and their differences. It provides both floating-point
+and binary descriptors for point-line matching, with a design focused on efficient
+deployment and visual localization.
 
-[![](https://github.com/roylin1229/UniPLD2/blob/main/loc_demo.gif)](https://drive.google.com/file/d/1kr8EqvrS4JAB7krVde5xMZj6mSvNn6CC/view?usp=sharing)  
+## Highlights
 
-Google Drive: https://drive.google.com/file/d/1kr8EqvrS4JAB7krVde5xMZj6mSvNn6CC/view?usp=sharing    
+- Unified detection and description of feature points and line segments.
+- Shared level-line representation for point-line primitives.
+- Floating-point and binary descriptors for efficient matching.
+- MATLAB implementation with a simple demo script.
+- Visual localization demo using UniPLD2 point-line features.
+
+## Repository Contents
+
+```text
+.
++-- UPLD2.m                     # Main UniPLD2 entry point
++-- test.m                      # Minimal demo script
++-- 1.ppm, 3.ppm                # Example input images
++-- loc_demo.gif                # Visual localization demo preview
++-- UIPD.m, ULSD.m              # Point and line extraction modules
++-- extract_*_desc_*.m          # Point/line descriptor extraction
++-- G_gradient.m, gen_LLD.m     # Gradient and level-line difference construction
++-- smart_walk*.m, fitline.m    # Line segment support-region and fitting utilities
+```
+
+## Requirements
+
+- MATLAB R2024b or later recommended.
+- Image Processing Toolbox is required for functions such as `integralImage`,
+  `rgb2gray`, and `imread`.
+
+The demo was tested with MATLAB R2024b on Windows.
+
+## Quick Start
+
+Clone the repository and run the demo from the repository root:
+
+```matlab
+test
+```
+
+The demo reads `1.ppm` and `3.ppm`, then extracts UniPLD2 feature points, line segments,
+and their descriptors.
+
+Expected outputs in `test.m`:
+
+```matlab
+[kps1, kp_descs1, kp_descs_b1, kls1, kl_descs1, kl_descs_b1] = UPLD2(img1);
+[kps3, kp_descs3, kp_descs_b3, kls3, kl_descs3, kl_descs_b3] = UPLD2(img3);
+```
+
+Output variables:
+
+- `kps`: detected feature points
+- `kp_descs`: floating-point feature point descriptors
+- `kp_descs_b`: binary feature point descriptors
+- `kls`: detected line segments
+- `kl_descs`: floating-point line segment descriptors
+- `kl_descs_b`: binary line segment descriptors
+
+If the repository is stored as a flat directory, MATLAB may print warnings that
+`utils_raw/`, `line_utils/`, or `point_utils/` do not exist. These warnings come from
+legacy `addpath` calls in `test.m`; the current demo still runs when the required `.m`
+files are in the repository root.
+
+## MATLAB API
+
+```matlab
+[kps, kp_descs, kp_descs_b, kls, kl_descs, kl_descs_b] = UPLD2(img);
+```
+
+Input:
+
+- `img`: grayscale or RGB input image.
+
+Outputs:
+
+- `kps`: feature points.
+- `kp_descs`: floating-point descriptors for feature points.
+- `kp_descs_b`: binary descriptors for feature points.
+- `kls`: line segments.
+- `kl_descs`: floating-point descriptors for line segments.
+- `kl_descs_b`: binary descriptors for line segments.
+
+## Visual Localization Demo
+
+UniPLD2 point-line features are used inside an existing mature visual localization demo
+framework to show the resulting localization performance.
+
+[![UniPLD2 visual localization demo](loc_demo.gif)](https://drive.google.com/file/d/1kr8EqvrS4JAB7krVde5xMZj6mSvNn6CC/view?usp=sharing)
+
+Demo video:
+[Google Drive](https://drive.google.com/file/d/1kr8EqvrS4JAB7krVde5xMZj6mSvNn6CC/view?usp=sharing)
+
+## Test Status
+
+`test.m` was executed successfully with MATLAB R2024b.
+
+Observed runtime on the provided example images:
+
+- `1.ppm`: approximately 8.37 s
+- `3.ppm`: approximately 2.82 s
+
+Runtime depends on hardware, MATLAB version, and toolbox configuration.
+
+## Citation
+
+If you use this code, please cite:
+
+```bibtex
+@misc{lin2026unipld2,
+  title  = {UniPLD2: A Unified Framework for Efficient Point-Line Detection and Description},
+  author = {Lin, Xinyu and Long, Zhen and Zhou, Yingjie and Zhang, Lei and Song, Yongduan and Zhu, Ce},
+  year   = {2026},
+  note   = {Manuscript}
+}
+```
+
+## License
+
+Please check the final project release for license terms before redistribution or
+commercial use.

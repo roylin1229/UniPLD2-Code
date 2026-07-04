@@ -75,19 +75,6 @@ framework to show the resulting localization performance.
 Demo video:
 [Google Drive](https://drive.google.com/file/d/1kr8EqvrS4JAB7krVde5xMZj6mSvNn6CC/view?usp=sharing)
 
-## Citation
-
-If you use this code, please cite:
-
-```bibtex
-@misc{lin2026unipld2,
-  title  = {UniPLD2: A Unified Framework for Efficient Point-Line Detection and Description},
-  author = {Lin, Xinyu and Long, Zhen and Zhou, Yingjie and Zhang, Lei and Song, Yongduan and Zhu, Ce},
-  year   = {2026},
-  note   = {Manuscript}
-}
-```
-
 ## License
 
 Please check the final project release for license terms before redistribution or

@@ -1,4 +1,4 @@
-clc; clearvars; close all; addpath('./utils_raw/'); addpath('./line_utils/'); addpath('./point_utils/'); warning('off')
+clc; clearvars; close all; warning('off')
 
 tic
 img1                                                            = imread('1.ppm');

@@ -65,11 +65,6 @@ Output variables:
 - `kl_descs`: floating-point line segment descriptors
 - `kl_descs_b`: binary line segment descriptors
 
-If the repository is stored as a flat directory, MATLAB may print warnings that
-`utils_raw/`, `line_utils/`, or `point_utils/` do not exist. These warnings come from
-legacy `addpath` calls in `test.m`; the current demo still runs when the required `.m`
-files are in the repository root.
-
 ## MATLAB API
 
 ```matlab

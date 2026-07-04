@@ -65,25 +65,6 @@ Output variables:
 - `kl_descs`: floating-point line segment descriptors
 - `kl_descs_b`: binary line segment descriptors
 
-## MATLAB API
-
-```matlab
-[kps, kp_descs, kp_descs_b, kls, kl_descs, kl_descs_b] = UPLD2(img);
-```
-
-Input:
-
-- `img`: grayscale or RGB input image.
-
-Outputs:
-
-- `kps`: feature points.
-- `kp_descs`: floating-point descriptors for feature points.
-- `kp_descs_b`: binary descriptors for feature points.
-- `kls`: line segments.
-- `kl_descs`: floating-point descriptors for line segments.
-- `kl_descs_b`: binary descriptors for line segments.
-
 ## Visual Localization Demo
 
 UniPLD2 point-line features are used inside an existing mature visual localization demo

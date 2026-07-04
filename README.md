@@ -75,17 +75,6 @@ framework to show the resulting localization performance.
 Demo video:
 [Google Drive](https://drive.google.com/file/d/1kr8EqvrS4JAB7krVde5xMZj6mSvNn6CC/view?usp=sharing)
 
-## Test Status
-
-`test.m` was executed successfully with MATLAB R2024b.
-
-Observed runtime on the provided example images:
-
-- `1.ppm`: approximately 8.37 s
-- `3.ppm`: approximately 2.82 s
-
-Runtime depends on hardware, MATLAB version, and toolbox configuration.
-
 ## Citation
 
 If you use this code, please cite:
